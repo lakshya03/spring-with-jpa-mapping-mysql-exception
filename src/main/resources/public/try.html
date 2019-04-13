@@ -1,0 +1,35 @@
+<HTML>
+    <HEAD>
+ <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    </HEAD>
+ 
+    <BODY>
+        <H1>Submitting Text Areas</H1>
+        <FORM  id="form" action="http://localhost:8080/rest/userscontact/check" method="post">
+            Please enter your text:
+            <BR>
+            <TEXTAREA NAME="textarea1" ROWS="5" COLS="120" ID="querytest" ></TEXTAREA>
+                  <BR>
+           
+            <INPUT TYPE="SUBMIT" VALUE="Submit" id="submit" >
+        </FORM>
+        <script type='text/javascript'>
+    /* attach a submit handler to the form */
+    $("#form").submit(function(event) {
+
+      /* stop form from submitting normally */
+      event.preventDefault();
+
+      /* get the action attribute from the <form action=""> element */
+      var $form = $( this ),
+          url = $form.attr( 'action' );
+
+      /* Send the data using post with element id name and name2*/
+       $.post( url, { name: $('#querytest').val() } );
+
+     
+      });
+    });
+</script>
+    </BODY>
+<HTML>

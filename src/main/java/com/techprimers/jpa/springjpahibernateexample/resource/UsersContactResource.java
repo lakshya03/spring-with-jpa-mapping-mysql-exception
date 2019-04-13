@@ -28,7 +28,12 @@ public class UsersContactResource {
     public UsersContactResource(UsersContactRepository usersContactRepository) {
         this.usersContactRepository = usersContactRepository;
     }
-
+    @PostMapping(value="/check")
+	public String persi(@RequestBody final String elementValue)
+	{
+		System.out.println(elementValue);
+		return elementValue;
+	}
     @GetMapping(value = "/all")
     public List<UsersContact> getUsersContact() {
         return usersContactRepository.findAll();
